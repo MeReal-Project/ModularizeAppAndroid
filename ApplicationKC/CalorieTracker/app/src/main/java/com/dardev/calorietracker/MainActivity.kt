@@ -53,19 +53,19 @@ class MainActivity : ComponentActivity() {
                             GenderScreen(onNavigate = navController::navigate)
                         }
                         composable(Route.HEIGHT){
-                            HeightScreen()
+                            HeightScreen(scaffoldState = scaffoldState, onNavigate = navController::navigate)
                         }
                         composable(Route.WEIGHT){
-                            WeightScreen()
+                            WeightScreen(scaffoldState = scaffoldState, onNavigate = navController::navigate)
                         }
                         composable(Route.NUTRIENT_GOAL){
-                            NutrientGoalScreen()
+                            NutrientGoalScreen(scaffoldState = scaffoldState,onNavigate = navController::navigate)
                         }
                         composable(Route.ACTIVITY){
-                            ActivityScreen()
+                            ActivityScreen(onNavigate = navController::navigate)
                         }
                         composable(Route.GOAL){
-                            GoalScreen()
+                            GoalScreen(onNavigate = navController::navigate)
                         }
                         composable(Route.TRACKER_OVERVIEW){
 
