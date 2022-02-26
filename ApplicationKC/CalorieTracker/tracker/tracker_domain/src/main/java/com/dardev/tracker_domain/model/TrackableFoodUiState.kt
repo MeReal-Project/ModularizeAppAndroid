@@ -4,6 +4,6 @@ import com.dardev.tracker_domain.model.TrackableFood
 
 data class TrackableFoodUiState (
     val food:TrackableFood,
-    val isExpanded:Boolean = false,
+    val isExpanded:Boolean = true,
     val amount:String = "",
 )

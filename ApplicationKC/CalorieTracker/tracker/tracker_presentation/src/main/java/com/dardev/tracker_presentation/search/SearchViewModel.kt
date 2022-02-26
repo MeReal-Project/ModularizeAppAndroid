@@ -6,13 +6,11 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dardev.core.domain.use_case.FilterOutDigits
-import com.dardev.core.navigation.Route
 import com.dardev.core.util.UiEvent
 import com.dardev.core.util.UiText
 import com.dardev.tracker_domain.model.TrackableFoodUiState
 import com.dardev.tracker_domain.use_case.TrackerUseCases
 import com.dardev.tracker_presentation.R
-import com.dardev.tracker_presentation.tracker_overview.TrackerOverviewEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
