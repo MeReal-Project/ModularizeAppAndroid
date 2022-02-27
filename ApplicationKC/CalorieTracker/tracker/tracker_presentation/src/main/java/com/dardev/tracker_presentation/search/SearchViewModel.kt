@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.dardev.core.domain.use_case.FilterOutDigits
 import com.dardev.core.util.UiEvent
 import com.dardev.core.util.UiText
-import com.dardev.tracker_domain.model.TrackableFoodUiState
 import com.dardev.tracker_domain.use_case.TrackerUseCases
 import com.dardev.tracker_presentation.R
 import dagger.hilt.android.lifecycle.HiltViewModel

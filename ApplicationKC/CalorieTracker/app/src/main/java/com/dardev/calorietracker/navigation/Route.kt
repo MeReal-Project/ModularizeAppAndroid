@@ -1,4 +1,4 @@
-package com.dardev.core.navigation
+package com.dardev.calorietracker.navigation
 
 object Route {
     const val WELCOME ="welcome"

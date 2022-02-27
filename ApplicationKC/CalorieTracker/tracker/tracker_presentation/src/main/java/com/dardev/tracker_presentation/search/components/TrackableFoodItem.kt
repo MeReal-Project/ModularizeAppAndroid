@@ -33,11 +33,11 @@ import androidx.compose.ui.unit.sp
 import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberImagePainter
 import com.dardev.core_ui.LocalSpacing
-import com.dardev.tracker_domain.model.TrackableFoodUiState
+import com.dardev.tracker_presentation.search.TrackableFoodUiState
 import com.dardev.tracker_presentation.R
 import com.dardev.tracker_presentation.components.NutrientInfo
 
-@OptIn(ExperimentalCoilApi::class)
+@ExperimentalCoilApi
 @Composable
 fun TrackableFoodItem(
     trackableFoodUiState: TrackableFoodUiState,

@@ -1,4 +1,4 @@
-package com.dardev.tracker_domain.model
+package com.dardev.tracker_presentation.search
 
 import com.dardev.tracker_domain.model.TrackableFood
 

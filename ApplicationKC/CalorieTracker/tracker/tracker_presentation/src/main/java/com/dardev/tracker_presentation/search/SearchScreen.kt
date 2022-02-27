@@ -17,6 +17,7 @@ import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
+import coil.annotation.ExperimentalCoilApi
 import com.dardev.core.util.UiEvent
 import com.dardev.core_ui.LocalSpacing
 import com.dardev.tracker_domain.model.MealType
@@ -25,7 +26,7 @@ import com.dardev.tracker_presentation.search.components.SearchTextField
 import com.dardev.tracker_presentation.search.components.TrackableFoodItem
 import java.time.LocalDate
 
-@OptIn(ExperimentalComposeUiApi::class)
+@OptIn(ExperimentalCoilApi::class, androidx.compose.ui.ExperimentalComposeUiApi::class)
 @Composable
 fun SearchScreen(
     scaffoldState: ScaffoldState,
@@ -84,7 +85,9 @@ fun SearchScreen(
                 TrackableFoodItem(
                     trackableFoodUiState = food,
                     onClick = {
-                        viewModel.onEvent(SearchEvent.OnToggleTrackableFood(food.food))
+                        viewModel.onEvent(
+                            SearchEvent.OnToggleTrackableFood(food.food)
+                        )
                     },
                     onAmountChange = {
                         viewModel.onEvent(SearchEvent.OnAmountForFoodChange(
