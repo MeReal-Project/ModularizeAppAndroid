@@ -12,7 +12,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/MeReal-Project/ModularizeAppAndroid">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="Image/Logo MeReal.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">MeReal Concept- Modular Android App</h3>
@@ -41,13 +41,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#project-structure">Project Structure</a></li>
-        <li><a href="#migration-kotlin-dsl">Migration Kotlin DSL</a></li>
-      </ul>
-    </li>
+    <li><a href="#project-structure">Project Structure</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#clean-architecture">Clean Architecture</a></li>
     <li>
@@ -74,7 +68,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![image](https://github.com/MeReal-Project/ModularizeAppAndroid/blob/20e4e2fb9b186a47f25f94e60c1011516558bf01/Image/compose.png)
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
@@ -85,7 +79,7 @@ Here's why:
 
 Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
 
-Use the `BLANK_README.md` to get started.
+Fork It if you want to try this project. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -93,7 +87,7 @@ Use the `BLANK_README.md` to get started.
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+This section summarize the library and Framework i have use for this project. 
 
 * [Kotlin](https://kotlinlang.org/)
 * [JetpackCompose](https://developer.android.com/jetpack/compose)
@@ -105,18 +99,9 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Project Structure
 
-
-<!-- GETTING STARTED -->
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Project Structure
-
-This is an example of how to list things you need to use the software and how to install them.
-  
+The Structure of each module in the Project. 
     .
     ├── build                   # Compiled files (alternatively `dist`)
     ├── docs                    # Documentation files (alternatively `doc`)
@@ -127,33 +112,25 @@ This is an example of how to list things you need to use the software and how to
     │   └── unit                # Unit tests
     └── ...
 
-### Migration Kotlin DSL
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. 
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-- ROADMAP -->
 ## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
+![image](Image/1_3dndBE2W_jYejuVQ9q-Jxw.png)
+- [x] Multi-Module(Style Layered-Feature Modularization)
+- [x] Migration Kotlin DSL
+- [x] Connection with OpenFood Api [OpenFood]https://ca.openfoodfacts.org/
+- [x] Add "components" document to easily copy & paste sections of the readme
+- [x] End to End Test for Ui
+- [x] Unit Test(learn how to Mock)
+- [x] Overview Flow
+- [ ] TrackerFood Flow
+    - [ ] TrackerOverview Screen
+       - [x] UI
+       - [x] ViewModel,State
+       - [ ] "Bug to fix" Don't display food item,carbs,calories and fat data on the screen
+   - [ ] Search Screen
+       - [x] UI
+       - [x] ViewModel,State
+       - [ ] "Bug to fix" Cannot display the textfield when we click on the food item    
 - [ ] Multi-language Support
     - [ ] French
     - [x] English
@@ -164,60 +141,77 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Clean Architecture
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Why is good to use the clean architecture concept:
+1. Well-scaling apps
+2. Easily testable
+3. Quickly understandable for others
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+We need to split the base code in 3 layer(presentation,domain,data):
+- Data Layer is for Database Implementation,Remote API, Mappers for DB entities and DTO(Data Transfert Object)
+- Domain Layer is for UseCase(Business logic and it allow us to avoid ViewModels to being too big)
+- Presentation Layer is for UI(Composable) and ViewModels
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ## Multi-Module Architecture
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Allow us to split the application into each module and it is very benefit for complex Application to adopt that. 
 
 ### Advantage/Disavantage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+Advantage of Multi-Module:
+  - Clear separation
+  - Faster Gradle builds
+  - dynamic feature and support for instant apps
+  - Part of application are reusable
+Disavantage of Multi-Module:
+  - Lots of initial setup involved(build.gradle everywhere 😈)
 
 ## Modularization Strategy
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+It is very important to know what kind of Modularization strategy to adopt when we create an application and we are 3 options to choose
 
 ### Layer Modularization
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+Layer Strategy is refer to the 3 layer(Data,Domain,Presentation)
+  - Big Modules => Slow Build
+  - Not reusable
+  - Hard to work in an isolated environement 
 
 ### Feature Modularization
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+Feature Strategy is refer to a single feature is the application we want to develop( exemple: DeliveryApp => Feature for Order/Feature for DashBoard User/...)
+  - 1 module per feature
+  - Reusable Modules
+  - Limited Size 
+  - Work better in isolated environement
+  - No clear separation
 
 ### Layered-Feature Modularization
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Layered-Feature Strategy is a mix between Feature and Layer Strategy to get the benefit for each of this strategy
+  - Module by feature with layer sub-modules(ex: ShoppingData / ShoppingDomain / ShoppingPresentation)
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+The Stategy Who have been use in this repository is the Layered-Feature Modularization.
+
+_For more Multi-Module examples, please refer to the [Medium Article](https://proandroiddev.com/modularization-in-android-architecture-point-of-view-from-a-to-z-part-ii-8baea5b2e4fd)_
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
 ## MVVM
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+![image](Image/MVVM.png)
+
+- Model:
+    1. Contains busniss logic
+    2. Contains Data source
+- View:
+    1. Binding with ViewModel
+    2. UI(Compose)
+    3. Inform the ViewModel about User Interactions
+- ViewModel:
+    1. Expose Data to the View
+    2. ViewModel is the link between the Model and the View.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
@@ -228,7 +222,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 Darren Lambert - Dardevpro@outlook.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/MeReal-Project/ModularizeAppAndroid)
+Project Link: [https://github.com/MeReal-Project/ModularizeAppAndroid](https://github.com/MeReal-Project/ModularizeAppAndroid)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -236,16 +230,16 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/Me
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/mereal-project/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/MeReal-Project/ModularizeAppAndroid.svg?style=for-the-badge
+[contributors-url]: https://github.com/MeReal-Project/ModularizeAppAndroid/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/MeReal-Project/ModularizeAppAndroid.svg?style=for-the-badge
+[forks-url]: https://github.com/MeReal-Project/ModularizeAppAndroid/network/members
+[stars-shield]: https://img.shields.io/github/stars/MeReal-Project/ModularizeAppAndroid.svg?style=for-the-badge
+[stars-url]: https://github.com/MeReal-Project/ModularizeAppAndroid/stargazers
+[issues-shield]: https://img.shields.io/github/issues/MeReal-Project/ModularizeAppAndroid.svg?style=for-the-badge
+[issues-url]: https://github.com/MeReal-Project/ModularizeAppAndroid/issues
+[license-shield]: https://img.shields.io/github/license/MeReal-Project/ModularizeAppAndroid.svg?style=for-the-badge
+[license-url]: https://github.com/MeReal-Project/ModularizeAppAndroid/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
+<!--[product-screenshot]: Image/Logo MeReal.png-->
