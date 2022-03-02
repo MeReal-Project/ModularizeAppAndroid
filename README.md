@@ -1,3 +1,10 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
 # ModularizeAppAndroid
 <div id="top"></div>
 
@@ -37,22 +44,22 @@
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#project-structure">Project Structure</a></li>
+        <li><a href="#migration-kotlin-dsl">Migration Kotlin DSL</a></li>
       </ul>
     </li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#clean">Clean Architecture</a></li>
+    <li><a href="#clean-architecture">Clean Architecture</a></li>
     <li>
-      <a href="#multimodule">Multi-Module Architecture</a>
+      <a href="#multi-module-architecture">Multi-Module Architecture</a>
       <ul>     
-        <li><a href="#plusminus">Advantage/Disavantage</a></li>
+        <li><a href="#advantagedisavantage">Advantage/Disavantage</a></li>
         <li>
-          <a href="#multimodulestrat">Modularization Stategy</a>
+          <a href="#modularization-strategy">Modularization Strategy</a>
           <ul>
-            <li><a href="#layer">Layer Modularization</a></li>
-            <li><a href="#feat">Feature Modularization</a></li>
-            <li><a href="#layerfeat">Layered-Feature Modularization</a></li>
+            <li><a href="#layer-modularization">Layer Modularization</a></li>
+            <li><a href="#feature-modularization">Feature Modularization</a></li>
+            <li><a href="#layered-feature-modularization">Layered-Feature Modularization</a></li>
           </ul>
         </li>
       </ul>
@@ -88,13 +95,13 @@ Use the `BLANK_README.md` to get started.
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [Kotlin](https://nextjs.org/)
-* [JetpackCompose](https://reactjs.org/)
-* [Dagger/Hilt](https://vuejs.org/)
-* [Retrofit](https://angular.io/)
-* [Coil](https://svelte.dev/)
-* [Coroutine](https://laravel.com)
-* [Room](https://getbootstrap.com)
+* [Kotlin](https://kotlinlang.org/)
+* [JetpackCompose](https://developer.android.com/jetpack/compose)
+* [Dagger/Hilt](https://dagger.dev/hilt/)
+* [Retrofit](https://square.github.io/retrofit/)
+* [Coil](https://coil-kt.github.io/coil/)
+* [Coroutine](https://kotlinlang.org/docs/coroutines-overview.html#sample-projects)
+* [Room](https://developer.android.com/jetpack/androidx/releases/room?gclid=CjwKCAiAyPyQBhB6EiwAFUuakjQO6IsuMr2gvRX9ucrl7CsuXX68HNYztT_4OVJ1DL37qsuibNdqqBoCIhMQAvD_BwE&gclsrc=aw.ds)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -106,19 +113,25 @@ This section should list any major frameworks/libraries used to bootstrap your p
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+### Project Structure
 
 This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+  
+    .
+    ├── build                   # Compiled files (alternatively `dist`)
+    ├── docs                    # Documentation files (alternatively `doc`)
+    ├── src                     # Source files (alternatively `lib` or `app`)
+    ├── test                    # Test files (alternatively `spec` or `tests`)
+    │   ├── benchmarks          # Load and stress tests
+    │   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
+    │   └── unit                # Unit tests
+    └── ...
 
-### Installation
+### Migration Kotlin DSL
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. 
 2. Clone the repo
    ```sh
    git clone https://github.com/your_username_/Project-Name.git
@@ -134,19 +147,6 @@ _Below is an example of how you can instruct your audience on installing and set
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
 <!-- ROADMAP -->
 ## Roadmap
 
@@ -155,13 +155,73 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ] Add Additional Templates w/ Examples
 - [ ] Add "components" document to easily copy & paste sections of the readme
 - [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+    - [ ] French
+    - [x] English
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- USAGE EXAMPLES -->
+## Clean Architecture
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Multi-Module Architecture
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+### Advantage/Disavantage
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+## Modularization Strategy
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Layer Modularization
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Feature Modularization
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+### Layered-Feature Modularization
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+<p align="right">(<a href="#top">back to top</a>)</p>
+
+
+## MVVM
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 <!-- CONTACT -->
 ## Contact
@@ -172,5 +232,20 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/Me
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+[Best-README-Template](https://github.com/othneildrew/Best-README-Template)
 
-
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/mereal-project/repo_name.svg?style=for-the-badge
+[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
+[forks-url]: https://github.com/github_username/repo_name/network/members
+[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
+[stars-url]: https://github.com/github_username/repo_name/stargazers
+[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
+[issues-url]: https://github.com/github_username/repo_name/issues
+[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
+[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/linkedin_username
+[product-screenshot]: images/screenshot.png
