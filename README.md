@@ -70,14 +70,14 @@
 
 ![image](https://github.com/MeReal-Project/ModularizeAppAndroid/blob/20e4e2fb9b186a47f25f94e60c1011516558bf01/Image/compose.png)
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+This Project follow a course I have do about Modularization with Jetpack Compose, the goal is to have a better understanding about modularization for Android Application.
 
 Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+* Personnal Purpose have a solid architecture for a big and complex android app
+* You will learn the different type of Modularization
+* You should to apply clean architecture method :smile:
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+Follow Dardev12, for more project
 
 Fork It if you want to try this project. 
 
@@ -102,15 +102,55 @@ This section summarize the library and Framework i have use for this project.
 ## Project Structure
 
 The Structure of each module in the Project. 
+
     .
-    ├── build                   # Compiled files (alternatively `dist`)
-    ├── docs                    # Documentation files (alternatively `doc`)
-    ├── src                     # Source files (alternatively `lib` or `app`)
-    ├── test                    # Test files (alternatively `spec` or `tests`)
-    │   ├── benchmarks          # Load and stress tests
-    │   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
-    │   └── unit                # Unit tests
-    └── ...
+    ├── buildSrc                   # Compiled files (alternatively `dist`)
+    ├── app
+    │   ├── ui
+    │   |  └── theme
+    │   ├── di
+    │   └── navigation
+    ├── core
+    │   ├── data
+    │   |  └── preferences
+    │   ├── domain
+    │   └── util
+    ├── core-ui
+    ├── onboarding                     # Source files (alternatively `lib` or `app`)
+    │   ├── onboarding_domain
+    │   |  ├── di
+    │   |  └── use_case
+    │   └── onboarding_presentation
+    │       ├── activity
+    │       ├── age
+    │       ├── components
+    │       ├── gender
+    │       ├── goal
+    │       ├── height
+    │       ├── nutrient_goal
+    │       ├── weight
+    │       └── welcome
+    └──  tracker                   # Test files (alternatively `spec` or `tests`)
+       ├── tracker_data          # Load and stress tests
+       │    ├── di
+       │    ├── local
+       │    |  └── entity
+       │    ├── mapper
+       │    ├── remote
+       │    |  └── dto
+       │    └── repository
+       ├── tracker_domain          # End-to-end, integration tests (alternatively `e2e`)
+       │    ├── di
+       │    ├── model
+       │    ├── repository
+       │    └── use_case
+       └── tracker_presentation                # Unit tests
+            ├── components
+            ├── search
+            |   └──  components
+            └── tracker_overview
+                └──  components
+    
 
 <!-- ROADMAP -->
 ## Roadmap
