@@ -47,7 +47,7 @@ fun ExpandableMeal(
                 painter = painterResource(id = meal.drawableRes),
                 contentDescription = meal.name.asString(context)
             )
-            Spacer(modifier = Modifier.width(spacing.spaceMedium) )
+            Spacer(modifier = Modifier.width(spacing.spaceMedium))
             Column(
                 modifier = Modifier.weight(1f)
             ) {
@@ -60,12 +60,12 @@ fun ExpandableMeal(
                         style = MaterialTheme.typography.h3
                     )
                     Icon(
-                        imageVector = if (meal.isExpanded){
-                               Icons.Default.KeyboardArrowUp
-                        }else  Icons.Default.KeyboardArrowDown ,
-                        contentDescription = if(meal.isExpanded){
+                        imageVector = if (meal.isExpanded) {
+                            Icons.Default.KeyboardArrowUp
+                        } else Icons.Default.KeyboardArrowDown,
+                        contentDescription = if(meal.isExpanded) {
                             stringResource(id = R.string.collapse)
-                        }else stringResource(id = R.string.extend)
+                        } else stringResource(id = R.string.extend)
                     )
                 }
                 Spacer(modifier = Modifier.height(spacing.spaceSmall))
@@ -79,23 +79,23 @@ fun ExpandableMeal(
                         amountTextSize = 30.sp
                     )
                     Row {
-                       NutrientInfo(
-                           name = stringResource(id = R.string.carbs),
-                           amount = meal.carbs,
-                           unit = stringResource(id = R.string.grams)
-                       )
-                       Spacer(modifier = Modifier.width(spacing.spaceSmall))
-                       NutrientInfo(
-                           name = stringResource(id = R.string.protein),
-                           amount = meal.protein,
-                           unit = stringResource(id = R.string.grams)
-                       )
+                        NutrientInfo(
+                            name = stringResource(id = R.string.carbs),
+                            amount = meal.carbs,
+                            unit = stringResource(id = R.string.grams)
+                        )
                         Spacer(modifier = Modifier.width(spacing.spaceSmall))
-                       NutrientInfo(
-                           name = stringResource(id = R.string.fat),
-                           amount = meal.fat,
-                           unit = stringResource(id = R.string.grams)
-                       )
+                        NutrientInfo(
+                            name = stringResource(id = R.string.protein),
+                            amount = meal.protein,
+                            unit = stringResource(id = R.string.grams)
+                        )
+                        Spacer(modifier = Modifier.width(spacing.spaceSmall))
+                        NutrientInfo(
+                            name = stringResource(id = R.string.fat),
+                            amount = meal.fat,
+                            unit = stringResource(id = R.string.grams)
+                        )
                     }
                 }
             }

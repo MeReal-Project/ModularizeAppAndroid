@@ -26,7 +26,8 @@ import com.dardev.tracker_presentation.search.components.SearchTextField
 import com.dardev.tracker_presentation.search.components.TrackableFoodItem
 import java.time.LocalDate
 
-@OptIn(ExperimentalCoilApi::class, androidx.compose.ui.ExperimentalComposeUiApi::class)
+@ExperimentalCoilApi
+@ExperimentalComposeUiApi
 @Composable
 fun SearchScreen(
     scaffoldState: ScaffoldState,
@@ -41,9 +42,9 @@ fun SearchScreen(
     val state = viewModel.state
     val context = LocalContext.current
     val keyboardController = LocalSoftwareKeyboardController.current
-    LaunchedEffect(key1 = keyboardController){
-        viewModel.uiEvent.collect{ event ->
-            when(event){
+    LaunchedEffect(key1 = keyboardController) {
+        viewModel.uiEvent.collect { event ->
+            when (event) {
                 is UiEvent.ShowSnackbar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
                         message = event.message.asString(context)
@@ -72,22 +73,20 @@ fun SearchScreen(
             },
             shouldShowHint = state.isHintVisible,
             onSearch = {
-               keyboardController?.hide()
-               viewModel.onEvent(SearchEvent.OnSearch)
-                       },
-            onFocusChanged ={
+                keyboardController?.hide()
+                viewModel.onEvent(SearchEvent.OnSearch)
+            },
+            onFocusChanged = {
                 viewModel.onEvent(SearchEvent.OnSearchFocusChange(it.isFocused))
             }
         )
-    Spacer(modifier = Modifier.height(spacing.spaceMedium))
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
+        Spacer(modifier = Modifier.height(spacing.spaceMedium))
+        LazyColumn(modifier = Modifier.fillMaxSize()) {
             items(state.trackableFood) { food ->
                 TrackableFoodItem(
                     trackableFoodUiState = food,
                     onClick = {
-                        viewModel.onEvent(
-                            SearchEvent.OnToggleTrackableFood(food.food)
-                        )
+                        viewModel.onEvent(SearchEvent.OnToggleTrackableFood(food.food))
                     },
                     onAmountChange = {
                         viewModel.onEvent(SearchEvent.OnAmountForFoodChange(
@@ -110,8 +109,8 @@ fun SearchScreen(
         }
     }
     Box(
-    modifier = Modifier.fillMaxSize(),
-    contentAlignment = Alignment.Center
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center
     ) {
         when {
             state.isSearching -> CircularProgressIndicator()

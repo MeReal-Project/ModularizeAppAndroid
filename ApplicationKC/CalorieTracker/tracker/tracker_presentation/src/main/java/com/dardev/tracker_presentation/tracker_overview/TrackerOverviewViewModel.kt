@@ -36,39 +36,39 @@ class TrackerOverviewViewModel @Inject constructor(
         preferences.saveShouldShowOnboarding(false)
     }
 
-    fun onEvent(event: TrackerOverviewEvent){
-        when(event){
-            is TrackerOverviewEvent.OnDeleteTrackedFoodClick->{
+    fun onEvent(event: TrackerOverviewEvent) {
+        when(event) {
+            is TrackerOverviewEvent.OnDeleteTrackedFoodClick -> {
                 viewModelScope.launch {
                     trackerUseCases.deleteTrackedFood(event.trackedFood)
                     refreshFoods()
                 }
             }
-            is TrackerOverviewEvent.OnNextDayClick->{
+            is TrackerOverviewEvent.OnNextDayClick -> {
                 state = state.copy(
                     date = state.date.plusDays(1)
                 )
                 refreshFoods()
             }
-            is TrackerOverviewEvent.OnPreviousDayClick->{
+            is TrackerOverviewEvent.OnPreviousDayClick -> {
                 state = state.copy(
                     date = state.date.minusDays(1)
                 )
                 refreshFoods()
             }
-            is TrackerOverviewEvent.OnToggleMealClick->{
+            is TrackerOverviewEvent.OnToggleMealClick -> {
                 state = state.copy(
-                    meals = state.meals.map{
-                        if(it.name==event.meal.name){
+                    meals = state.meals.map {
+                        if(it.name == event.meal.name) {
                             it.copy(isExpanded = !it.isExpanded)
-                        }else it
+                        } else it
                     }
                 )
             }
         }
     }
 
-    private fun refreshFoods(){
+    private fun refreshFoods() {
         getFoodsForDateJob?.cancel()
         getFoodsForDateJob = trackerUseCases
             .getFoodsForDate(state.date)

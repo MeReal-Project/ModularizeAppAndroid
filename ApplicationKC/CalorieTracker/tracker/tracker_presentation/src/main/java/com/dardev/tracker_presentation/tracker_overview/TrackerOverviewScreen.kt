@@ -8,10 +8,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
+import coil.annotation.ExperimentalCoilApi
 import com.dardev.core_ui.LocalSpacing
 import com.dardev.tracker_presentation.R
 import com.dardev.tracker_presentation.tracker_overview.components.*
 
+@ExperimentalCoilApi
 @Composable
 fun TrackerOverviewScreen(
     onNavigateToSearch: (String,Int,Int,Int) -> Unit,
@@ -20,13 +22,11 @@ fun TrackerOverviewScreen(
     val spacing = LocalSpacing.current
     val state = viewModel.state
     val context = LocalContext.current
-
-
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .padding(bottom = spacing.spaceMedium)
-    ){
+    ) {
         item {
             NutrientsHeader(state = state)
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
@@ -34,7 +34,7 @@ fun TrackerOverviewScreen(
                 date = state.date,
                 onPreviousDayClick = {
                     viewModel.onEvent(TrackerOverviewEvent.OnPreviousDayClick)
-                 },
+                },
                 onNextDayClick = {
                     viewModel.onEvent(TrackerOverviewEvent.OnNextDayClick)
                 },
@@ -44,7 +44,7 @@ fun TrackerOverviewScreen(
             )
             Spacer(modifier = Modifier.height(spacing.spaceMedium))
         }
-        items(state.meals){ meal ->
+        items(state.meals) { meal ->
             ExpandableMeal(
                 meal = meal,
                 onToggleClick = {
@@ -56,10 +56,7 @@ fun TrackerOverviewScreen(
                             .fillMaxWidth()
                             .padding(horizontal = spacing.spaceSmall)
                     ) {
-                        val foods = state.trackedFoods.filter {
-                            it.mealType == meal.mealType
-                        }
-                        foods.forEach { food->
+                        state.trackedFoods.forEach { food ->
                             TrackedFoodItem(
                                 trackedFood = food,
                                 onDeleteClick = {
@@ -73,7 +70,7 @@ fun TrackerOverviewScreen(
                         }
                         AddButton(
                             text = stringResource(
-                                id= R.string.add_meal,
+                                id = R.string.add_meal,
                                 meal.name.asString(context)
                             ),
                             onClick = {
@@ -81,7 +78,7 @@ fun TrackerOverviewScreen(
                                     meal.name.asString(context),
                                     state.date.dayOfMonth,
                                     state.date.monthValue,
-                                    state.date.year,
+                                    state.date.year
                                 )
                             },
                             modifier = Modifier.fillMaxWidth()
@@ -90,7 +87,6 @@ fun TrackerOverviewScreen(
                 },
                 modifier = Modifier.fillMaxWidth()
             )
-            
         }
     }
 }

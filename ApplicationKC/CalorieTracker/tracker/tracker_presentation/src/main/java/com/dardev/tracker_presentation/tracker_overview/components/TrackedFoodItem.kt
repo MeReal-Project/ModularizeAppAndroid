@@ -27,7 +27,7 @@ import com.dardev.tracker_domain.model.TrackedFood
 import com.dardev.tracker_presentation.R
 import com.dardev.tracker_presentation.components.NutrientInfo
 
-@OptIn(ExperimentalCoilApi::class)
+@ExperimentalCoilApi
 @Composable
 fun TrackedFoodItem(
     trackedFood: TrackedFood,
@@ -48,7 +48,7 @@ fun TrackedFoodItem(
             .height(100.dp),
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically
-    ){
+    ) {
         Image(
             painter = rememberImagePainter(
                 data = trackedFood.imageUrl,

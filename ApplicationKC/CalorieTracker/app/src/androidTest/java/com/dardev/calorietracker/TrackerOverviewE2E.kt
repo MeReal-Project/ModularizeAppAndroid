@@ -49,7 +49,7 @@ import org.junit.Rule
 import org.junit.Test
 import kotlin.math.roundToInt
 
-@OptIn(ExperimentalComposeUiApi::class)
+@ExperimentalComposeUiApi
 @ExperimentalCoilApi
 @HiltAndroidTest
 class TrackerOverviewE2E {

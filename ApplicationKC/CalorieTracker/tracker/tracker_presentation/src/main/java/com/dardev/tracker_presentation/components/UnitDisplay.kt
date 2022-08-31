@@ -27,20 +27,19 @@ fun UnitDisplay(
     val spacing = LocalSpacing.current
     Row(modifier = modifier) {
         Text(
-            text= amount.toString(),
-            style= MaterialTheme.typography.h1,
-            fontSize= amountTextSize,
+            text = amount.toString(),
+            style = MaterialTheme.typography.h1,
+            fontSize = amountTextSize,
             color = amountColor,
             modifier = Modifier.alignBy(LastBaseline)
         )
         Spacer(modifier = Modifier.width(spacing.spaceExtraSmall))
         Text(
-            text= unit,
-            style= MaterialTheme.typography.body1,
-            fontSize= unitTextSize,
+            text = unit,
+            style = MaterialTheme.typography.body1,
+            fontSize = unitTextSize,
             color = unitColor,
             modifier = Modifier.alignBy(LastBaseline)
         )
-
     }
 }

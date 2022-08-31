@@ -34,15 +34,15 @@ fun NutrientsBarInfo(
     strokeWidth: Dp = 8.dp
 ){
     val background = MaterialTheme.colors.background
-    val goalExceedColor = MaterialTheme.colors.error
-    val angleRatio = remember{
+    val goalExceededColor = MaterialTheme.colors.error
+    val angleRatio = remember {
         Animatable(0f)
     }
-    LaunchedEffect(key1 = value){
+    LaunchedEffect(key1 = value) {
         angleRatio.animateTo(
-            targetValue = if(goal > 0){
+            targetValue = if (goal > 0) {
                 value / goal.toFloat()
-            }else 0f,
+            } else 0f,
             animationSpec = tween(
                 durationMillis = 300
             )
@@ -51,13 +51,14 @@ fun NutrientsBarInfo(
     Box(
         modifier = modifier,
         contentAlignment = Alignment.Center
-    ){
-        Canvas(modifier = Modifier
-            .fillMaxWidth()
-            .aspectRatio(1f)
-        ){
+    ) {
+        Canvas(
+            modifier = Modifier
+                .fillMaxWidth()
+                .aspectRatio(1f),
+        ) {
             drawArc(
-                color = if(value <= goal) background else goalExceedColor,
+                color = if(value <= goal) background else goalExceededColor,
                 startAngle = 0f,
                 sweepAngle = 360f,
                 useCenter = false,
@@ -67,11 +68,11 @@ fun NutrientsBarInfo(
                     cap = StrokeCap.Round
                 )
             )
-            if(value <= goal){
+            if(value <= goal) {
                 drawArc(
                     color = color,
                     startAngle = 90f,
-                    sweepAngle = 360 * angleRatio.value,
+                    sweepAngle = 360f * angleRatio.value,
                     useCenter = false,
                     size = size,
                     style = Stroke(
@@ -88,18 +89,18 @@ fun NutrientsBarInfo(
             UnitDisplay(
                 amount = value,
                 unit = stringResource(id = R.string.grams),
-                amountColor = if(value <= goal){
+                amountColor = if(value <= goal) {
                     MaterialTheme.colors.onPrimary
-                }else goalExceedColor,
-                unitColor = if(value <= goal){
+                } else goalExceededColor,
+                unitColor = if(value <= goal) {
                     MaterialTheme.colors.onPrimary
-                }else goalExceedColor,
+                } else goalExceededColor
             )
             Text(
                 text = name,
-                color = if(value <= goal){
+                color = if(value <= goal) {
                     MaterialTheme.colors.onPrimary
-                }else goalExceedColor,
+                } else goalExceededColor,
                 style = MaterialTheme.typography.body1,
                 fontWeight = FontWeight.Light
             )
