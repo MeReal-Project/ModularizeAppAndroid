@@ -53,14 +53,14 @@ class MainActivity : ComponentActivity() {
                         navController = navController,
                         startDestination = if(shouldShowOnboarding) {
                             Route.WELCOME
-                        }else Route.TRACKER_OVERVIEW
-                    ){
-                        composable(Route.WELCOME){
+                        } else Route.TRACKER_OVERVIEW
+                    ) {
+                        composable(Route.WELCOME) {
                             WelcomeScreen(onNextClick = {
                                 navController.navigate(Route.GENDER)
-                            } )
+                            })
                         }
-                        composable(Route.AGE){
+                        composable(Route.AGE) {
                             AgeScreen(
                                 scaffoldState = scaffoldState,
                                 onNextClick = {
@@ -68,19 +68,20 @@ class MainActivity : ComponentActivity() {
                                 }
                             )
                         }
-                        composable(Route.GENDER){
+                        composable(Route.GENDER) {
                             GenderScreen(onNextClick = {
                                 navController.navigate(Route.AGE)
                             })
                         }
-                        composable(Route.HEIGHT){
+                        composable(Route.HEIGHT) {
                             HeightScreen(
                                 scaffoldState = scaffoldState,
                                 onNextClick = {
                                     navController.navigate(Route.WEIGHT)
-                                })
+                                }
+                            )
                         }
-                        composable(Route.WEIGHT){
+                        composable(Route.WEIGHT) {
                             WeightScreen(
                                 scaffoldState = scaffoldState,
                                 onNextClick = {
@@ -88,7 +89,7 @@ class MainActivity : ComponentActivity() {
                                 }
                             )
                         }
-                        composable(Route.NUTRIENT_GOAL){
+                        composable(Route.NUTRIENT_GOAL) {
                             NutrientGoalScreen(
                                 scaffoldState = scaffoldState,
                                 onNextClick = {
@@ -96,30 +97,26 @@ class MainActivity : ComponentActivity() {
                                 }
                             )
                         }
-                        composable(Route.ACTIVITY){
-                            ActivityScreen(
-                                onNextClick = {
-                                    navController.navigate(Route.GOAL)
-                                }
-                            )
+                        composable(Route.ACTIVITY) {
+                            ActivityScreen(onNextClick = {
+                                navController.navigate(Route.GOAL)
+                            })
                         }
-                        composable(Route.GOAL){
-                            GoalScreen(
-                                onNextClick = {
-                                    navController.navigate(Route.NUTRIENT_GOAL)
-                                }
-                            )
+                        composable(Route.GOAL) {
+                            GoalScreen(onNextClick = {
+                                navController.navigate(Route.NUTRIENT_GOAL)
+                            })
                         }
-                        composable(Route.TRACKER_OVERVIEW){
+
+                        composable(Route.TRACKER_OVERVIEW) {
                             TrackerOverviewScreen(
                                 onNavigateToSearch = { mealName, day, month, year ->
-                                        navController.navigate(
-                                            Route.SEARCH
-                                                    + "/$mealName"
-                                                    + "/$day"
-                                                    + "/$month"
-                                                    + "/$year"
-                                        )
+                                    navController.navigate(
+                                        Route.SEARCH + "/$mealName" +
+                                                "/$day" +
+                                                "/$month" +
+                                                "/$year"
+                                    )
                                 }
                             )
                         }

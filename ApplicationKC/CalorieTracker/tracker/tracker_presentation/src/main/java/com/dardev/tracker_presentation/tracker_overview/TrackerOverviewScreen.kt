@@ -1,5 +1,6 @@
 package com.dardev.tracker_presentation.tracker_overview
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -56,7 +57,10 @@ fun TrackerOverviewScreen(
                             .fillMaxWidth()
                             .padding(horizontal = spacing.spaceSmall)
                     ) {
-                        state.trackedFoods.forEach { food ->
+                        val foods = state.trackedFoods.filter {
+                            it.mealType == meal.mealType
+                        }
+                        foods.forEach { food->
                             TrackedFoodItem(
                                 trackedFood = food,
                                 onDeleteClick = {
@@ -74,6 +78,7 @@ fun TrackerOverviewScreen(
                                 meal.name.asString(context)
                             ),
                             onClick = {
+                                Log.d("NAVIGATE_SEARCH",meal.name.asString(context))
                                 onNavigateToSearch(
                                     meal.name.asString(context),
                                     state.date.dayOfMonth,
