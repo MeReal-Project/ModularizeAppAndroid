@@ -13,7 +13,7 @@ class CalculateMealNutrients(
     private val preferences: Preferences
 ) {
 
-    operator fun invoke(trackedFoods: List<TrackedFood>):Result{
+    operator fun invoke(trackedFoods: List<TrackedFood>): Result {
         val allNutrients = trackedFoods
             .groupBy { it.mealType }
             .mapValues { entry ->
@@ -23,7 +23,7 @@ class CalculateMealNutrients(
                     carbs = foods.sumOf { it.carbs },
                     protein = foods.sumOf { it.protein },
                     fat = foods.sumOf { it.fat },
-                    calories=foods.sumOf{ it.calories },
+                    calories = foods.sumOf { it.calories },
                     mealType = type
                 )
             }
@@ -43,11 +43,11 @@ class CalculateMealNutrients(
             proteinGoal = proteinGoal,
             fatGoal = fatGoal,
             caloriesGoal = caloryGoal,
-            totalCarbs=totalCarbs,
-            totalProtein=totalProtein,
-            totalFat=totalFat,
-            totalCalories=totalCalories,
-            mealNutrients= allNutrients,
+            totalCarbs = totalCarbs,
+            totalProtein = totalProtein,
+            totalFat = totalFat,
+            totalCalories = totalCalories,
+            mealNutrients = allNutrients
         )
     }
 

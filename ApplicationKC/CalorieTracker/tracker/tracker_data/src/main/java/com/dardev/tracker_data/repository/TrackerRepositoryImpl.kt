@@ -29,10 +29,10 @@ class TrackerRepositoryImpl(
             )
             Result.success(
                 searchDto.products
-                    .filter{
-                        var calculatedCalories =
+                    .filter {
+                        val calculatedCalories =
                             it.nutriments.carbohydrates100g * 4f +
-                                it.nutriments.proteins100g * 4f +
+                                    it.nutriments.proteins100g * 4f +
                                     it.nutriments.fat100g * 9f
                         val lowerBound = calculatedCalories * 0.99f
                         val upperBound = calculatedCalories * 1.01f
@@ -40,7 +40,7 @@ class TrackerRepositoryImpl(
                     }
                     .mapNotNull { it.toTrackableFood() }
             )
-        }catch (e:Exception){
+        } catch(e: Exception) {
             e.printStackTrace()
             Result.failure(e)
         }
@@ -58,10 +58,9 @@ class TrackerRepositoryImpl(
         return dao.getFoodsForDate(
             day = localDate.dayOfMonth,
             month = localDate.monthValue,
-            year = localDate.year,
+            year = localDate.year
         ).map { entities ->
-            entities.map{it.toTrackedFood()}
-
+            entities.map { it.toTrackedFood() }
         }
     }
 }

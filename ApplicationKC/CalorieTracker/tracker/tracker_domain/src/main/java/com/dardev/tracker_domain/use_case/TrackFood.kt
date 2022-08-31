@@ -8,14 +8,15 @@ import java.time.LocalDate
 import kotlin.math.roundToInt
 
 class TrackFood(
-    private val repository:TrackerRepository
+    private val repository: TrackerRepository
 ) {
+
     suspend operator fun invoke(
         food: TrackableFood,
-        amount:Int,
-        mealType:MealType,
-        date:LocalDate
-    ){
+        amount: Int,
+        mealType: MealType,
+        date: LocalDate
+    ) {
         repository.insertTrackedFood(
             TrackedFood(
                 name = food.name,
@@ -24,10 +25,9 @@ class TrackFood(
                 fat = ((food.fatPer100g / 100f) * amount).roundToInt(),
                 calories = ((food.caloriesPer100g / 100f) * amount).roundToInt(),
                 imageUrl = food.imageUrl,
-                mealType= mealType,
+                mealType = mealType,
                 amount = amount,
-                date = date
-
+                date = date,
             )
         )
     }
