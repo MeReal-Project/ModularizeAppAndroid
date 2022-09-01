@@ -1,5 +1,6 @@
 package com.dardev.tracker_presentation.search
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -94,6 +95,7 @@ fun SearchScreen(
                         ))
                     },
                     onTrack = {
+                        Log.d("TRACK_SEARCH", MealType.fromString(mealName).toString())
                         keyboardController?.hide()
                         viewModel.onEvent(
                             SearchEvent.OnTrackFoodClick(

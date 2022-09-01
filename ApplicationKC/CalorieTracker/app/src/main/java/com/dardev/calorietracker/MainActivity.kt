@@ -1,6 +1,7 @@
 package com.dardev.calorietracker
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,6 +25,7 @@ import com.dardev.onboarding_presentation.height.HeightScreen
 import com.dardev.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import com.dardev.onboarding_presentation.weight.WeightScreen
 import com.dardev.onboarding_presentation.welcome.WelcomeScreen
+import com.dardev.tracker_domain.model.MealType
 import com.dardev.tracker_presentation.search.SearchScreen
 import com.dardev.tracker_presentation.tracker_overview.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -141,6 +143,7 @@ class MainActivity : ComponentActivity() {
                             val dayOfMonth = it.arguments?.getInt("dayOfMonth")!!
                             val month = it.arguments?.getInt("month")!!
                             val year = it.arguments?.getInt("year")!!
+
                             SearchScreen(
                                 scaffoldState = scaffoldState,
                                 mealName = mealName,
